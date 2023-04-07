@@ -48,6 +48,11 @@ public class RecyclerViewFragment extends Fragment {
             Log.i("RecyclerView", "Selected item " + position);
             Toast.makeText(getContext(), "Selected item " + position, Toast.LENGTH_SHORT).show();
         };
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        for(int i = 0; i < 200; i++){
+            hotels.add(new Item("Liked hotel name", R.drawable.house_image));
+        }
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(hotels, listener);
         recyclerView.setAdapter(adapter);
     }

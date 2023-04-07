@@ -32,8 +32,16 @@ public class ListViewFragment extends Fragment {
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_list_view, container, false);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        for(int i = 0; i < 200; i++){
+            hotel.add(new Item("Hotel name", R.drawable.house_image));
+        }
         ListView listView = view.findViewById(R.id.listViewLayout);
         ListViewAdapter adapter = new ListViewAdapter(getContext(), R.layout.list_container, hotel);
         listView.setAdapter(adapter);
