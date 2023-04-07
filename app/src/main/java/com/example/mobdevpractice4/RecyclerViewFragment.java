@@ -13,6 +13,11 @@ public class RecyclerViewFragment extends Fragment {
     public RecyclerViewFragment() {
     }
 
+    public static RecyclerViewFragment newInstance() {
+        RecyclerViewFragment fragment = new RecyclerViewFragment();
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
