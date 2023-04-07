@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,5 +47,9 @@ public class ListViewFragment extends Fragment {
         ListView listView = view.findViewById(R.id.listViewLayout);
         ListViewAdapter adapter = new ListViewAdapter(getContext(), R.layout.list_container, hotel);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener((parent, view1, position, id) -> {
+            Log.i("ListView", "Selected item " + position);
+            Toast.makeText(getContext(), "Selected item " + position, Toast.LENGTH_SHORT).show();
+        });
     }
 }
